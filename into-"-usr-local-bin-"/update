@@ -1,0 +1,31 @@
+#! /bin/bash
+
+loop_code="100"
+code_exit="100"
+
+echo "Are you sure you want to update? It may take few minutes [y,n]"
+read input
+
+if [ $input == "y" ]; then
+    /jamulus-server/jamulus-update.sh &>/dev/null & \
+
+    background_process_pid=$(pgrep jamulus-update)
+
+    while [[ $loop_code == "100" ]]; do
+        echo "Jamulus is being updated" && sleep 20 && \
+        kill -0 $background_process_pid &>/dev/null
+
+        if [[ $? == 1 ]]; then
+            wait $background_process_pid
+            code_exit=$?
+        fi
+
+        if [[ $code_exit == "0" ]]; then
+            echo "Jamulus is up to date"
+            loop_code="69"
+        fi
+    done
+
+else
+    echo "Update canceled"
+fi

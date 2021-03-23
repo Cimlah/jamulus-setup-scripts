@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo "Jamulus server is starting" ; /jamulus-server/jamulus-start.sh &>/dev/null

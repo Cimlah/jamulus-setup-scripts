@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo "Stopping Jamulus server" && /jamulus-server/jamulus-stop.sh &>/dev/null
