@@ -1,7 +1,7 @@
 #! /bin/bash
 
 cd /jamulus-server/ && \
-source /jamulus-setup-scripts/jamulus-stop.sh
+source /jamulus-server/jamulus-stop.sh
 if [[ $pgrep_exit_code == "0" ]]; then
     rm -rf jamulus-latest latest.tar.gz && \
     wget https://github.com/jamulussoftware/jamulus/archive/latest.tar.gz && \
