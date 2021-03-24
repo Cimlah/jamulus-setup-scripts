@@ -9,6 +9,7 @@ if [[ $pgrep_exit_code == "0" ]]; then
     cd jamulus-latest/ && \
     qmake Jamulus.pro && \
     make clean && \
+    make && \
     rm /usr/local/bin/Jamulus ; \
     cp Jamulus /usr/local/bin/
 elif [[ $pgrep_exit_code == "2" ]]; then
@@ -18,6 +19,7 @@ elif [[ $pgrep_exit_code == "2" ]]; then
     cd jamulus-latest/ && \
     qmake Jamulus.pro && \
     make clean && \
+    make && \
     rm /usr/local/bin/Jamulus ; \
     cp Jamulus /usr/local/bin/
 else
